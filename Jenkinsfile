@@ -33,7 +33,7 @@ spec:
     stage('preamble') {
       steps {
         container('node'){
-          sh 'npm -h; true'
+          sh 'set +e; npm -h; true'
         }
         script {
           openshift.withCluster() {
