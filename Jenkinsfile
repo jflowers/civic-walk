@@ -24,6 +24,9 @@ spec:
   stages {
     stage('preamble') {
       steps {
+        container('node'){
+          sh 'npm -h'
+        }
         script {
           openshift.withCluster() {
             openshift.withProject() {
