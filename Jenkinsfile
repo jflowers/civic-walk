@@ -1,8 +1,17 @@
 
 pipeline {
   agent {
-    node {
-      label 'nodejs'
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: ose-jenkins-agent-base:v4.2.15
+    command: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+    tty: true
+"""
     }
   }
   options {
