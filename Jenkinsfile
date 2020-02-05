@@ -3,10 +3,13 @@ pipeline {
   agent {
     kubernetes {
       cloud 'openshift'
-      label 'nodejs'
+      label 'civic-walk-pipeline-agent'
       yaml """
 apiVersion: v1
 kind: Pod
+metadata:
+  labels:
+    worker: civic-walk-pipeline-agent
 spec:
   containers:
   - name: node
