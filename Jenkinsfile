@@ -13,13 +13,15 @@ metadata:
 spec:
   containers:
   - name: jnlp
-    image: image-registry.openshift-image-registry.svc:5000/openshift/ose-jenkins-agent-base:latest
+    image: openshift4/ose-jenkins-agent-base:v4.2.15
     args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
   - name: node
-    image: nodejs:12
+    image: rhel8/nodejs-12:1-27
     command:
     - cat
     tty: true
+  imagePullSecrets:
+    - name: 12968862-jenkins-pull-secret
 """
     }
   }
