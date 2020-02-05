@@ -12,6 +12,9 @@ metadata:
     worker: civic-walk-pipeline-agent
 spec:
   containers:
+  - name: jnlp
+    image: openshift/ose-jenkins-agent-base:v4.2.15
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
   - name: node
     image: nodejs:12
     command:
