@@ -10,7 +10,7 @@ spec:
   containers:
   - name: jnlp
     image: ose-jenkins-agent-base:v4.2.15
-    command: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
     tty: true
 """
     }
