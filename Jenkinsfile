@@ -13,7 +13,7 @@ metadata:
 spec:
   containers:
   - name: node
-    image: node:12.9.0-alpine
+    image: nodejs:12
     command:
     - cat
     tty: true
