@@ -13,10 +13,10 @@ metadata:
 spec:
   containers:
   - name: jnlp
-    image: openshift4/ose-jenkins-agent-base:v4.2.15
+    image: registry.redhat.io/openshift4/ose-jenkins-agent-base:v4.2.15
     args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
   - name: node
-    image: rhel8/nodejs-12:1-27
+    image: registry.redhat.io/rhel8/nodejs-12:1-27
     command:
     - cat
     tty: true
