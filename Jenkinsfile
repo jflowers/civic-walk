@@ -9,9 +9,8 @@ kind: Pod
 spec:
   containers:
   - name: jnlp
-    image: ose-jenkins-agent-base:v4.2.15
+    image: openshift/ose-jenkins-agent-base:v4.2.15
     args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
-    tty: true
 """
     }
   }
