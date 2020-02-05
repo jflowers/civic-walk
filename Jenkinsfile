@@ -30,17 +30,21 @@ spec:
   }
 
   stages {
-    stage('preamble') {
+    stage('Build') {
       steps {
         container('node'){
-          sh 'set +e; npm -h; true'
+          dir('frontend'){
+            sh 'npm ci'
+            sh 'npm run build'
+          }
         }
-        script {
-          openshift.withCluster() {
-            openshift.withProject() {
-              echo "Using project: ${openshift.project()}"
-              echo "..."
-            }
+      }
+    }
+    stage('Unit Test') {
+      steps {
+        container('node'){
+          dir('frontend'){
+            sh 'npm run test'
           }
         }
       }
