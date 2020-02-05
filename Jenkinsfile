@@ -25,8 +25,12 @@ spec:
 """
     }
   }
+
   options {
     timeout(time: 20, unit: 'MINUTES')
+  }
+  environment{
+    CI=true 
   }
 
   stages {
